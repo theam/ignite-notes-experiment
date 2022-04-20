@@ -1,0 +1,13 @@
+syntax = "proto3";
+package AdrianLorenzoDev.notes.notes;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/AdrianLorenzoDev/notes/x/notes/types";
+
+// Msg defines the Msg service.
+service Msg {
+    // this line is used by starport scaffolding # proto/tx/rpc
+}
+
+// this line is used by starport scaffolding # proto/tx/message
