@@ -26,7 +26,7 @@ Ignite auto-generates a lot of go modules in order to work. Some of the most rel
 
 ## How do I execute a node? 🤯
 
-1. [Install Go](https://go.dev/doc/install).
+1. [Install Go](https://go.dev/doc/install) 🐹.
 2. [Install Ignite CLI](https://docs.ignite.com/guide/install.html) 💿.
 3. Clone this repository 👭🏻.
 4. Open terminal 🖥 and change to the directory of the repository ➡️.
