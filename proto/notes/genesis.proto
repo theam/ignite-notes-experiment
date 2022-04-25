@@ -1,14 +1,16 @@
 syntax = "proto3";
-package AdrianLorenzoDev.notes.notes;
+package theam.ignitenotesexperiment.notes;
 
 import "gogoproto/gogo.proto";
 import "notes/params.proto";
+import "notes/note.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
-option go_package = "github.com/AdrianLorenzoDev/notes/x/notes/types";
+option go_package = "github.com/theam/ignite-notes-experiment/x/notes/types";
 
 // GenesisState defines the notes module's genesis state.
 message GenesisState {
   Params params = 1 [(gogoproto.nullable) = false];
+  repeated Note noteList = 2 [(gogoproto.nullable) = false];
   // this line is used by starport scaffolding # genesis/proto/state
 }

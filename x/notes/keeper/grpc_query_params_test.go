@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "github.com/AdrianLorenzoDev/notes/testutil/keeper"
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
+	testkeeper "github.com/theam/ignite-notes-experiment/testutil/keeper"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 func TestParamsQuery(t *testing.T) {

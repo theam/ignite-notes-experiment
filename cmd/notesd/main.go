@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/AdrianLorenzoDev/notes/app"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	"github.com/ignite-hq/cli/ignite/pkg/cosmoscmd"
+	"github.com/theam/ignite-notes-experiment/app"
 )
 
 func main() {

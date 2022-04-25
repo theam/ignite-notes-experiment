@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 type msgServer struct {

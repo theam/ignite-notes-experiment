@@ -1,13 +1,42 @@
 syntax = "proto3";
-package AdrianLorenzoDev.notes.notes;
+package theam.ignitenotesexperiment.notes;
 
+import "notes/note.proto";
 // this line is used by starport scaffolding # proto/tx/import
 
-option go_package = "github.com/AdrianLorenzoDev/notes/x/notes/types";
+option go_package = "github.com/theam/ignite-notes-experiment/x/notes/types";
 
 // Msg defines the Msg service.
 service Msg {
-    // this line is used by starport scaffolding # proto/tx/rpc
+  rpc CreateNote(MsgCreateNote) returns (MsgCreateNoteResponse);
+  rpc UpdateNote(MsgUpdateNote) returns (MsgUpdateNoteResponse);
+  rpc DeleteNote(MsgDeleteNote) returns (MsgDeleteNoteResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
 }
+
+message MsgCreateNote {
+  string creator = 1;
+  string title = 2;
+  string content = 3;
+}
+message MsgCreateNoteResponse {
+  string uid = 1;
+}
+
+message MsgUpdateNote {
+  string uid = 1;
+  string creator = 2;
+  string title = 3;
+  string content = 4;
+}
+message MsgUpdateNoteResponse {
+  string uid = 1;
+}
+
+message MsgDeleteNote {
+  string uid = 1;
+  string creator = 2;
+}
+message MsgDeleteNoteResponse {}
 
 // this line is used by starport scaffolding # proto/tx/message

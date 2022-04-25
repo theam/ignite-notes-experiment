@@ -1,9 +1,9 @@
 syntax = "proto3";
-package AdrianLorenzoDev.notes.notes;
+package theam.ignitenotesexperiment.notes;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/AdrianLorenzoDev/notes/x/notes/types";
+option go_package = "github.com/theam/ignite-notes-experiment/x/notes/types";
 
 // Params defines the parameters for the module.
 message Params {

@@ -1,0 +1,13 @@
+syntax = "proto3";
+package theam.ignitenotesexperiment.notes;
+
+option go_package = "github.com/theam/ignite-notes-experiment/x/notes/types";
+
+message Note {
+  string uid = 1; 
+  string title = 2; 
+  string content = 3; 
+  int64 createdAt = 4; 
+  string creator = 5;
+}
+

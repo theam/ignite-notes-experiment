@@ -3,8 +3,8 @@ package keeper
 import (
 	"context"
 
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

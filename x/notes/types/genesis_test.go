@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
 	"github.com/stretchr/testify/require"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {
@@ -19,12 +19,34 @@ func TestGenesisState_Validate(t *testing.T) {
 			valid:    true,
 		},
 		{
-			desc:     "valid genesis state",
+			desc: "valid genesis state",
 			genState: &types.GenesisState{
 
+				NoteList: []types.Note{
+					{
+						Uid: "0",
+					},
+					{
+						Uid: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
+		},
+		{
+			desc: "duplicated note",
+			genState: &types.GenesisState{
+				NoteList: []types.Note{
+					{
+						Uid: "0",
+					},
+					{
+						Uid: "0",
+					},
+				},
+			},
+			valid: false,
 		},
 		// this line is used by starport scaffolding # types/genesis/testcase
 	} {

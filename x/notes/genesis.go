@@ -1,14 +1,18 @@
 package notes
 
 import (
-	"github.com/AdrianLorenzoDev/notes/x/notes/keeper"
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/theam/ignite-notes-experiment/x/notes/keeper"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis
 // state.
 func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) {
+	// Set all the note
+	for _, elem := range genState.NoteList {
+		k.SetNote(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -18,6 +22,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis := types.DefaultGenesis()
 	genesis.Params = k.GetParams(ctx)
 
+	genesis.NoteList = k.GetAllNote(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

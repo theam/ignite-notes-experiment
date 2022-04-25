@@ -1,52 +1,35 @@
-# notes
-**notes** is a blockchain built using Cosmos SDK and Tendermint and created with [Starport](https://starport.com).
+# Ignite notes experiment
 
-## Get started
+![A chain made of paper](./img/header.jpeg "A chain made of paper")
 
-```
-starport chain serve
-```
+_A chain made of paper_
 
-`serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
+---
 
-### Configure
+Application specific blockchain node to manage public notes.
 
-Your blockchain in development can be configured with `config.yml`. To learn more, see the [Starport docs](https://docs.starport.com).
+This application was built using the [Ignite CLI](https://ignite.com), an application to create application-specific blockchains using the [Cosmos SDK](https://cosmos.network) and the [Tendermint Core](https://tendermint.com/core/) consensus algorithm, created by [Tendermint](https://tendermint.com)
 
-### Web Frontend
+## I don't understand the implemenetation 😦
 
-Starport has scaffolded a Vue.js-based web app in the `vue` directory. Run the following commands to install dependencies and start the app:
+Ignite auto-generates a lot of go modules in order to work. Some of the most relevant ones are the following:
 
-```
-cd vue
-npm install
-npm run serve
-```
+- **`proto`**. Business model definition as protobuf messages and queries.
+- **`x/{endpoint}`**. Query and transaction handlers based on the business model definitions, which helpers and tests.
+  - **`keepers`**. Definition of transaction and query handlers. Act as the operations' entrypoints.
+  - **`types`**. Business model types.
+  - **`simulation`**. Simulation utils to test a network with more than one node.
+  - **`client`**. Definition of a CLI application to execute transaction and queries of the given endpoint.
+- **`app`**. Network application definition: logging, keeper configuration, cryptography configuration, etc.
+- **`vue`**. Template for a frontend application in Vue.
+- **`docs`**. OpenAPI static documentation specification
 
-The frontend app is built using the `@starport/vue` and `@starport/vuex` packages. For details, see the [monorepo for Starport front-end development](https://github.com/tendermint/vue).
+## How do I execute a node? 🤯
 
-## Release
-To release a new version of your blockchain, create and push a new tag with `v` prefix. A new draft release with the configured targets will be created.
-
-```
-git tag v0.1
-git push origin v0.1
-```
-
-After a draft release is created, make your final changes from the release page and publish it.
-
-### Install
-To install the latest version of your blockchain node's binary, execute the following command on your machine:
-
-```
-curl https://get.starport.com/AdrianLorenzoDev/notes@latest! | sudo bash
-```
-`AdrianLorenzoDev/notes` should match the `username` and `repo_name` of the Github repository to which the source code was pushed. Learn more about [the install process](https://github.com/allinbits/starport-installer).
-
-## Learn more
-
-- [Starport](https://starport.com)
-- [Tutorials](https://docs.starport.com/guide)
-- [Starport docs](https://docs.starport.com)
-- [Cosmos SDK docs](https://docs.cosmos.network)
-- [Developer Chat](https://discord.gg/H6wGTY8sxw)
+1. [Install Go](https://go.dev/doc/install).
+2. [Install Ignite CLI](https://docs.ignite.com/guide/install.html) 💿.
+3. Clone this repository 👭🏻.
+4. Open terminal 🖥 and change to the directory of the repository ➡️.
+5. Execute `ignite chain serve` ⛓😋.
+6. After building and initializing, the output will give you the `Blockchain API` endpoint 😳.
+7. You can also execute operations using the generated CLI tool (`notesd`) 🥶.

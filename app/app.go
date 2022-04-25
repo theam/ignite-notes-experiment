@@ -95,11 +95,11 @@ import (
 	monitoringpkeeper "github.com/tendermint/spn/x/monitoringp/keeper"
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
-	"github.com/AdrianLorenzoDev/notes/docs"
+	"github.com/theam/ignite-notes-experiment/docs"
 
-	notesmodule "github.com/AdrianLorenzoDev/notes/x/notes"
-	notesmodulekeeper "github.com/AdrianLorenzoDev/notes/x/notes/keeper"
-	notesmoduletypes "github.com/AdrianLorenzoDev/notes/x/notes/types"
+	notesmodule "github.com/theam/ignite-notes-experiment/x/notes"
+	notesmodulekeeper "github.com/theam/ignite-notes-experiment/x/notes/keeper"
+	notesmoduletypes "github.com/theam/ignite-notes-experiment/x/notes/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Writer, Reader } from "protobufjs/minimal";
 
-export const protobufPackage = "AdrianLorenzoDev.notes.notes";
+export const protobufPackage = "theam.ignitenotesexperiment.notes";
 
 /** Params defines the parameters for the module. */
 export interface Params {}

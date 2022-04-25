@@ -1,21 +1,33 @@
 syntax = "proto3";
-package AdrianLorenzoDev.notes.notes;
+package theam.ignitenotesexperiment.notes;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "notes/params.proto";
+import "notes/note.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/AdrianLorenzoDev/notes/x/notes/types";
+option go_package = "github.com/theam/ignite-notes-experiment/x/notes/types";
 
 // Query defines the gRPC querier service.
 service Query {
-  // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/AdrianLorenzoDev/notes/notes/params";
-  }
-  // this line is used by starport scaffolding # 2
+	// Parameters queries the parameters of the module.
+	rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+		option (google.api.http).get = "/theam/ignite-notes-experiment/notes/params";
+	}
+
+  	// Queries a Note by index.
+	rpc Note(QueryGetNoteRequest) returns (QueryGetNoteResponse) {
+		option (google.api.http).get = "/theam/ignite-notes-experiment/notes/note/{uid}";
+	}
+
+	// Queries a list of Note items.
+	rpc NoteAll(QueryAllNoteRequest) returns (QueryAllNoteResponse) {
+		option (google.api.http).get = "/theam/ignite-notes-experiment/notes/note";
+	}
+
+// this line is used by starport scaffolding # 2
 }
 
 // QueryParamsRequest is request type for the Query/Params RPC method.
@@ -25,6 +37,23 @@ message QueryParamsRequest {}
 message QueryParamsResponse {
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetNoteRequest {
+	string uid = 1;
+}
+
+message QueryGetNoteResponse {
+	Note note = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllNoteRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllNoteResponse {
+	repeated Note note = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
 // this line is used by starport scaffolding # 3

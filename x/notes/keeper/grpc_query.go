@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 var _ types.QueryServer = Keeper{}

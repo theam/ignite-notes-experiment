@@ -1,4 +1,4 @@
-module github.com/AdrianLorenzoDev/notes
+module github.com/theam/ignite-notes-experiment
 
 go 1.16
 
@@ -7,6 +7,7 @@ require (
 	github.com/cosmos/ibc-go/v2 v2.0.3
 	github.com/gogo/protobuf v1.3.3
 	github.com/golang/protobuf v1.5.2
+	github.com/google/uuid v1.3.0
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/ignite-hq/cli v0.20.3

@@ -4,9 +4,15 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
+import { MsgCreateNote } from "./types/notes/tx";
+import { MsgDeleteNote } from "./types/notes/tx";
+import { MsgUpdateNote } from "./types/notes/tx";
 
 
 const types = [
+  ["/theam.ignitenotesexperiment.notes.MsgCreateNote", MsgCreateNote],
+  ["/theam.ignitenotesexperiment.notes.MsgDeleteNote", MsgDeleteNote],
+  ["/theam.ignitenotesexperiment.notes.MsgUpdateNote", MsgUpdateNote],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -39,6 +45,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
+    msgCreateNote: (data: MsgCreateNote): EncodeObject => ({ typeUrl: "/theam.ignitenotesexperiment.notes.MsgCreateNote", value: MsgCreateNote.fromPartial( data ) }),
+    msgDeleteNote: (data: MsgDeleteNote): EncodeObject => ({ typeUrl: "/theam.ignitenotesexperiment.notes.MsgDeleteNote", value: MsgDeleteNote.fromPartial( data ) }),
+    msgUpdateNote: (data: MsgUpdateNote): EncodeObject => ({ typeUrl: "/theam.ignitenotesexperiment.notes.MsgUpdateNote", value: MsgUpdateNote.fromPartial( data ) }),
     
   };
 };

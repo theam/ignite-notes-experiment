@@ -1,8 +1,8 @@
 package keeper
 
 import (
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 // GetParams get all parameters as types.Params

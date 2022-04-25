@@ -3,8 +3,6 @@ package keeper
 import (
 	"testing"
 
-	"github.com/AdrianLorenzoDev/notes/x/notes/keeper"
-	"github.com/AdrianLorenzoDev/notes/x/notes/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/store"
@@ -15,6 +13,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmdb "github.com/tendermint/tm-db"
+	"github.com/theam/ignite-notes-experiment/x/notes/keeper"
+	"github.com/theam/ignite-notes-experiment/x/notes/types"
 )
 
 func NotesKeeper(t testing.TB) (*keeper.Keeper, sdk.Context) {
